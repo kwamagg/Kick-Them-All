@@ -2,6 +2,7 @@ Scriptname KickThemAllMCM extends MCM_ConfigBase
 
 Quest Property KickThemAllQuest Auto
 GlobalVariable Property KTA_Hotkey Auto
+GlobalVariable Property KTA_StaminaConsumption Auto
 
 Bool migrated = False
 
@@ -49,6 +50,10 @@ Event OnSettingChange(String a_ID)
         (KickThemAllQuest.GetAlias(0) as ReferenceAlias).OnPlayerLoadGame()
         SetModSettingInt("iAssignKey:Controller", 0)
         RefreshMenu()
+    ElseIf a_ID == "iStaminaConsumption:General"
+        KTA_StaminaConsumption.SetValue(GetModSettingInt("iStaminaConsumption:General") as Float)
+        (KickThemAllQuest.GetAlias(0) as ReferenceAlias).OnPlayerLoadGame()
+        RefreshMenu()
     ElseIf a_ID == "iAssignKey:Controller"
         If GetModSettingInt("iAssignKey:Controller") > 0
             KTA_Hotkey.SetValue(265 + GetModSettingInt("iAssignKey:Controller") as Float)
@@ -66,6 +71,7 @@ EndEvent
 Function Default()
     SetModSettingInt("iHotkey:General", 34)
     SetModSettingInt("iAssignKey:Controller", 0)
+    SetModSettingInt("iStaminaConsumption:General", 10)
     SetModSettingBool("bEnabled:Maintenance", True)
     SetModSettingInt("iLoadingDelay:Maintenance", 0)
     SetModSettingBool("bLoadSettingsonReload:Maintenance", False)
