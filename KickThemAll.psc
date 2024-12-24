@@ -2,6 +2,7 @@ Scriptname KickThemAll extends ReferenceAlias
 
 Actor Property KTA_Player Auto
 GlobalVariable Property KTA_Hotkey Auto
+GlobalVariable Property KTA_StaminaConsumption Auto
 
 Bool holdingKey = False
 Bool wasSheathed = False
@@ -17,7 +18,7 @@ EndEvent
 
 Function KTA_SetUp()
     UnregisterForAllKeys()
-    RegisterForKey(KTA_Hotkey.GetValueInt())
+	RegisterForKey(KTA_Hotkey.GetValueInt())
 EndFunction
 
 Event OnKeyDown(int keyCode)
@@ -41,9 +42,10 @@ Event OnUpdate()
                 wasSheathed = True
             EndIf
             Debug.SendAnimationEvent(KTA_Player,"KickAnimation")
+            KTA_Player.DamageActorValue("Stamina", totalPressTime * KTA_StaminaConsumption.GetValue())
             Utility.Wait(1.0)
             KTA_Player.SetAnimationVariableInt("currentDefaultState", 1)
-	    Debug.SendAnimationEvent(KTA_Player, "JumpLandEnd")
+	        Debug.SendAnimationEvent(KTA_Player, "JumpLandEnd")
             If crosshairRef
                 Actor targetActor = crosshairRef as Actor
                 If targetActor
