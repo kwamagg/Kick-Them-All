@@ -17,7 +17,7 @@ EndEvent
 
 Function KTA_SetUp()
     UnregisterForAllKeys()
-	  RegisterForKey(KTA_Hotkey.GetValueInt())
+    RegisterForKey(KTA_Hotkey.GetValueInt())
 EndFunction
 
 Event OnKeyDown(int keyCode)
@@ -43,7 +43,7 @@ Event OnUpdate()
             Debug.SendAnimationEvent(KTA_Player,"KickAnimation")
             Utility.Wait(1.0)
             KTA_Player.SetAnimationVariableInt("currentDefaultState", 1)
-	          Debug.SendAnimationEvent(KTA_Player, "JumpLandEnd")
+	    Debug.SendAnimationEvent(KTA_Player, "JumpLandEnd")
             If crosshairRef
                 Actor targetActor = crosshairRef as Actor
                 If targetActor
