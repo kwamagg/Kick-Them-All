@@ -37,8 +37,8 @@
                     "help": "Determines how many stamina points will be consumed per second of holding the kick button.",
                     "valueOptions": {
 			"min": 0,
-    	"max": 100,
-   		"step": 1,
+    			"max": 100,
+   			"step": 1,
 			"sourceType": "ModSettingInt",
 			"defaultValue": 10
                     }
@@ -54,8 +54,8 @@
                     "help": "Determines how much damage it would take for the kick to be considered an assault. If you want every kick to be a crime - set 0. If you don't want any bounties - set 1000.",
                     "valueOptions": {
 			"min": 0,
-    	"max": 1000,
-   	  "step": 1,
+    			"max": 1000,
+   	  		"step": 1,
 			"sourceType": "ModSettingInt",
 			"defaultValue": 2
                     }
@@ -71,8 +71,8 @@
                     "help": "Determines the force applied to the target when the kick lands.",
                     "valueOptions": {
 			"min": 0.0,
-    	"max": 100.0,
-   		"step": 0.1,
+    			"max": 100.0,
+   			"step": 0.1,
 			"sourceType": "ModSettingFloat",
 			"defaultValue": 5.0,
 			"formatString": "{1}"
@@ -89,8 +89,8 @@
                     "help": "Determines the multiplier for the base damage dealt to the target per second. Seconds of holding get multiplied by this number, with 1% of the player's level and 5% of the Heavy Armor Skill added to the total. If you don't want a multiplier - set 1.0. If you don't want to deal any damage - set 0.0.",
                     "valueOptions": {
 			"min": 0.0,
-    	"max": 50.0,
-   		"step": 0.1,
+    			"max": 50.0,
+   			"step": 0.1,
 			"sourceType": "ModSettingFloat",
 			"defaultValue": 2.5,
 			"formatString": "{1}"
