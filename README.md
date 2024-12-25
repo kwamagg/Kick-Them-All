@@ -11,4 +11,3 @@ The source code of my mod with the corresponding name.
 3. Pandora https://www.nexusmods.com/skyrimspecialedition/mods/133232
 
 - MCM Helper https://www.nexusmods.com/skyrimspecialedition/mods/53000
-- To create your own MCM quest, you'll need MCM SDK https://github.com/Exit-9B/MCM-Helper/releases/tag/v1.5.0
