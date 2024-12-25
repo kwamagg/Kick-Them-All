@@ -1,0 +1,208 @@
+{
+    "modName": "KickThemAll",
+    "displayName": "Kick Them All",
+    "minMcmVersion": 9,
+    "pluginRequirements": [],
+    "cursorFillMode": "topToBottom",
+    "content": [],
+    "customContent": {},
+    "pages": [
+        {
+            "pageDisplayName": "General",
+            "cursorFillMode": "topToBottom",
+            "content": [
+                {
+                    "type": "header",
+                    "text": "Hotkey"
+                },
+                {
+                    "id": "iHotkey:General",
+                    "type": "keymap",
+                    "text": "Assign Hotkey",
+                    "help": "",
+                    "valueOptions": {
+                        "sourceType": "ModSettingInt",
+                        "defaultValue": 34
+                    },
+                    "ignoreConflicts": false
+                },
+		{
+                    "type": "header",
+                    "text": "Stamina Consumption Per Second"
+                },
+                {
+                    "id": "iStaminaConsumption:General",
+                    "type": "slider",
+                    "text": "Slider",
+                    "help": "Determines how many stamina points will be consumed per second of holding the kick button.",
+                    "valueOptions": {
+			"min": 0,
+    	"max": 100,
+   		"step": 1,
+			"sourceType": "ModSettingInt",
+			"defaultValue": 10
+                    }
+                },
+		{
+                    "type": "header",
+                    "text": "Assault Damage Threshold"
+                },
+                {
+                    "id": "iAssaultDamageThreshold:General",
+                    "type": "slider",
+                    "text": "Slider",
+                    "help": "Determines how much damage it would take for the kick to be considered an assault. If you want every kick to be a crime - set 0. If you don't want any bounties - set 1000.",
+                    "valueOptions": {
+			"min": 0,
+    	"max": 1000,
+   	  "step": 1,
+			"sourceType": "ModSettingInt",
+			"defaultValue": 2
+                    }
+                },
+		{
+                    "type": "header",
+                    "text": "Push Force Multiplier"
+                },
+                {
+                    "id": "fPushForceMultiplier:General",
+                    "type": "slider",
+                    "text": "Slider",
+                    "help": "Determines the force applied to the target when the kick lands.",
+                    "valueOptions": {
+			"min": 0.0,
+    	"max": 100.0,
+   		"step": 0.1,
+			"sourceType": "ModSettingFloat",
+			"defaultValue": 5.0,
+			"formatString": "{1}"
+                    }
+                },
+		{
+                    "type": "header",
+                    "text": "Damage Value Multiplier"
+                },
+                {
+                    "id": "fDamageValueMultiplier:General",
+                    "type": "slider",
+                    "text": "Slider",
+                    "help": "Determines the multiplier for the base damage dealt to the target per second. Seconds of holding get multiplied by this number, with 1% of the player's level and 5% of the Heavy Armor Skill added to the total. If you don't want a multiplier - set 1.0. If you don't want to deal any damage - set 0.0.",
+                    "valueOptions": {
+			"min": 0.0,
+    	"max": 50.0,
+   		"step": 0.1,
+			"sourceType": "ModSettingFloat",
+			"defaultValue": 2.5,
+			"formatString": "{1}"
+                    }
+                },
+                {
+                    "type": "header",
+                    "text": "Controller Button",
+                    "position": 1
+                },
+                {
+                    "id": "iAssignKey:Controller",
+                    "type": "enum",
+                    "text": "Assign Button",
+                    "help": "",
+                    "valueOptions": {
+                        "options": [
+                            "$None_ENUM",
+                            "$DPADUP_ENUM",
+                            "$DPADDOWN_ENUM",
+                            "$DPADLEFT_ENUM",
+                            "$DPADRIGHT_ENUM",
+                            "$START_ENUM",
+                            "$BACK_ENUM",
+                            "$LEFTTHUMB_ENUM",
+                            "$RIGHTTHUMB_ENUM",
+                            "$LEFTSHOULDER_ENUM",
+                            "$RIGHTSHOULDER_ENUM",
+                            "$A_ENUM",
+                            "$B_ENUM",
+                            "$X_ENUM",
+                            "$Y_ENUM",
+                            "$LT_ENUM",
+                            "$RT_ENUM"
+                        ],
+                        "sourceType": "ModSettingInt",
+                        "defaultValue": 0
+                    }
+                }
+            ]
+        },
+        {
+            "pageDisplayName": "Maintenance",
+            "cursorFillMode": "topToBottom",
+            "content": [
+                {
+                    "type": "header",
+                    "text": "Autoload Settings"
+                },
+                {
+                    "id": "bEnabled:Maintenance",
+                    "type": "toggle",
+                    "text": "Enabled",
+                    "help": "Uncheck this option if you want this mod variables not to be loaded. This does not apply to variables in the settings file and when the script is upgraded to a newer version. Disabling this option is useful when there are conflicts with other mods during autoload.",
+                    "valueOptions": {
+                        "sourceType": "ModSettingBool",
+                        "defaultValue": true
+                    }
+                },
+                {
+                    "id": "iLoadingDelay:Maintenance",
+                    "type": "slider",
+                    "text": "Loading Delay",
+                    "help": "Settings loading delay in seconds. Useful if the mod takes time to initialize on your system.",
+                    "valueOptions": {
+                        "min": 0,
+                        "max": 600,
+                        "step": 1,
+                        "defaultValue": 0,
+                        "sourceType": "ModSettingInt",
+                        "formatString": "{0}"
+                    }
+                },
+                {
+                    "id": "sLoadSettings:Maintenance",
+                    "type": "text",
+                    "text": "Load Settings",
+                    "help": "Forces the modification to reload the settings. Useful if autoloading is disabled.",
+                    "valueOptions": {
+                        "sourceType": "ModSettingString",
+                        "defaultValue": ""
+                    },
+                    "action": {
+                        "type": "CallFunction",
+                        "function": "Load"
+                    }
+                },
+                {
+                    "id": "sResetSettings:Maintenance",
+                    "type": "text",
+                    "text": "Reset Settings",
+                    "help": "Reset settings to default values.",
+                    "valueOptions": {
+                        "sourceType": "ModSettingString",
+                        "defaultValue": ""
+                    },
+                    "action": {
+                        "type": "CallFunction",
+                        "function": "Default"
+                    }
+                },
+                {
+                    "id": "bLoadSettingsonReload:Maintenance",
+                    "type": "toggle",
+                    "text": "Load Settings on Reload",
+                    "help": "Check this option if you want the settings to be loaded every time you load the game. Useful if you have something that reverts settings. This option will not work if you disabled Autoload.",
+                    "valueOptions": {
+                        "sourceType": "ModSettingBool",
+                        "defaultValue": false
+                    }
+                }
+            ]
+        }
+    ]
+}
